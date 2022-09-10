@@ -3,14 +3,14 @@ import {useEffect} from 'react';
 
 Paciente
 
-const ListadoPacientes = ({pacientes,setPaciente}) => {
+const ListadoPacientes = ({pacientes,setPaciente,eliminarPaciente}) => {
 
 
 
 
 
   return (
-    <div className="md:w-1/2 lg:w-2/5 md:h-screen overflow-scroll">
+    <div className="md:w-1/2 lg:w-3/4 md:h-screen overflow-scroll">
 
       {pacientes.length === 0 ? (
         <>
@@ -33,6 +33,7 @@ const ListadoPacientes = ({pacientes,setPaciente}) => {
            key={pacient.id}
             paciente={pacient}
             setPaciente={setPaciente}
+            eliminarPaciente={eliminarPaciente}
             />
         )
        })}

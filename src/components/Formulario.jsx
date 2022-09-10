@@ -1,7 +1,7 @@
 import { useState , useEffect} from "react";
 
 
-const Formulario = ({pacientes,setPacientes,paciente}) => {
+const Formulario = ({pacientes,setPacientes,paciente,setPaciente}) => {
 
 const [nombre,setNombre ] = useState('');
 const [propietario,setPropietario ] = useState('');
@@ -58,6 +58,7 @@ if(paciente.id){
   objetoPaciente.id = paciente.id //agrego un id nuevo a paciente a editar
   const pacientesActualizados = pacientes.map ( pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState)
   setPacientes(pacientesActualizados);
+  setPaciente({});
 }
 else 
 {
