@@ -1,8 +1,9 @@
 import Paciente from "./Paciente"
+import {useEffect} from 'react';
 
 Paciente
 
-const ListadoPacientes = () => {
+const ListadoPacientes = ({pacientes,setPaciente}) => {
 
 
 
@@ -11,13 +12,37 @@ const ListadoPacientes = () => {
   return (
     <div className="md:w-1/2 lg:w-2/5 md:h-screen overflow-scroll">
 
+      {pacientes.length === 0 ? (
+        <>
+        <h2 className="font-black text-2xl text-center">No hay pacientes registrados</h2>
+        <p className="text-xl mt-5 mb-10 text-center">
+          Comienza agregar {''}
+          <span className="text-indigo-600 font-bold">tus Pacientes y Citas</span>
+       </p>
+        </>
+      ) : (
+        <>
         <h2 className="font-black text-2xl text-center">Listado de pacientes</h2>
         <p className="text-xl mt-5 mb-10 text-center">
           Administra tus {''}
           <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
        </p>
-       <Paciente/>
-       <Paciente/>
+       {pacientes.map((pacient)=>{
+        return(
+            <Paciente
+           key={pacient.id}
+            paciente={pacient}
+            setPaciente={setPaciente}
+            />
+        )
+       })}
+        
+        </>
+      )}
+
+        
+       
+       
       
       
       
